@@ -29,6 +29,15 @@ body {
     position: relative;
     z-index: -10;
 }
+.scroller{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 1.7px;
+    background-color: #ba8f02;
+    z-index: 9999;
+}
 /* ================================================================== */
 /*                  NAV BAR */
 /* ================================================================== */
@@ -72,9 +81,14 @@ header .logo  {
 header .logo img {
     height: 100%;
 }
-
+header nav ul {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
 @media screen and (max-width: 1024px) {
- header nav ul {
+
+    header nav ul {
         position: absolute;
         flex-direction: column;
         padding: 1rem;
@@ -83,51 +97,25 @@ header .logo img {
         top: 100%;
         background-color: rgba(0, 0, 0, 0.7);
         display: none;
-    } 
-
-}
-header nav ul {
-    display: flex;
-    align-items: center;
-    text-align: center;
+    }
+    header nav ul:hover {
+        background-color: rgba(0, 0, 0, 1);
+    }
+  
 }
 header nav ul li {
-    margin: 0 25px; 
-    position: relative;
-}
-header nav ul li::after{
-    content:'' ;
-    width: 0%;
-    height: 2px;
-    background:#e6c156;
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    transition:0.5s
-}
-nav ul li:hover::after{
-    width: 100%;
+    width: 6.5rem;
 }
 header nav ul li a {
     color: white;
     font-size: 20px;
-    /* padding-bottom: 5px; */
+    padding-bottom: 5px;
 }
-
-
-header nav .icon  {
-    width: 3rem;
-    height: 1.5rem ;
-    border-left: 1.2px solid white;
-    display: grid;
-    place-items: center;
-}
-.icon i{
-    color: #e6c156;
-    position: absolute;
-    font-size: 1.3rem;
-    cursor: pointer;
-}
+header nav ul li a:hover{ 
+    border-bottom: 3px solid #e6c156;
+    position:relative;
+    bottom:-9px;
+} 
 header nav .btns-1 {
     display: none;
 }
@@ -211,7 +199,7 @@ header nav .close-nav i{
 } 
 .landing .container h1 {
     font-weight: normal;
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-variant: small-caps;
     margin-top: 40px;
     text-shadow: 2px 2px 10px yellow;
@@ -219,12 +207,12 @@ header nav .close-nav i{
 @media screen and (max-width: 1024px){
     .landing .container h1 {
         font-size: 2.5rem;
-        margin-top: 40px;
+        margin-top: 60px;
     }
 
 }
 .landing .container p {
-    width: 60%;
+    width: 76%;
     margin:35px; 
     font-size: 1.3rem;
     line-height: 1.5;
@@ -233,8 +221,8 @@ header nav .close-nav i{
 }
 @media screen and (max-width: 1024px) {
     .landing .container p {
-        font-size: 1.3rem;
-        width: 90%;
+        font-size: 1rem;
+        margin-bottom: 40px;
     }
 }
 .landing .container .hover a {
